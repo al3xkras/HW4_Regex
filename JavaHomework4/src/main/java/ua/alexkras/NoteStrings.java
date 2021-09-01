@@ -18,7 +18,7 @@ public interface NoteStrings {
 
      String eMail = "regex.eMail";
 
-     String skypeAddress = "regex.skypeAddress";
+     String skypeNickName = "regex.skypeNickName";
 
      String addressPostalIndex = "regex.addressPostalIndex";
      String addressCity = "regex.addressCity";
