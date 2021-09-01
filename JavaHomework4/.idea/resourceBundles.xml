@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ResourceBundleManager">
-    <file url="file://$PROJECT_DIR$/src/main/resources/note.properties" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/note_ua_UA.properties" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/NoteRegex.properties" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/NoteRegex_ua_UA.properties" />
     <custom-resource-bundle>
-      <file value="file://$PROJECT_DIR$/src/main/resources/note.properties" />
-      <file value="file://$PROJECT_DIR$/src/main/resources/note_ua_UA.properties" />
-      <base-name>note</base-name>
+      <file value="file://$PROJECT_DIR$/src/main/resources/NoteRegex.properties" />
+      <file value="file://$PROJECT_DIR$/src/main/resources/NoteRegex_ua_UA.properties" />
+      <base-name>NoteRegex</base-name>
     </custom-resource-bundle>
   </component>
 </project>
