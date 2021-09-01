@@ -3,26 +3,27 @@ package ua.alexkras;
 import java.util.ResourceBundle;
 
 public class NoteBookDataModel {
-    int currentPositionIndex = 0;
+    int currentPositionIndex = 14;
 
-    ResourceBundle bundle;
+    ResourceBundle bundleRegex,bundleValues;
 
-    public NoteBookDataModel(ResourceBundle bundle){
-        this.bundle = bundle;
+    public NoteBookDataModel(ResourceBundle bundleRegex, ResourceBundle bundleValues){
+        this.bundleRegex = bundleRegex;
+        this.bundleValues = bundleValues;
     }
 
     public String getPositionValueByIndex(int index){
-        return bundle.getString(NoteStrings.positionPrefix+NoteStrings.PositionNames[index]);
+        return bundleValues.getString(NoteStrings.positionPrefix+NoteStrings.PositionNames[index]);
     }
     public String getCurrentValue(){
-        return bundle.getString(NoteStrings.positionPrefix+NoteStrings.PositionNames[currentPositionIndex]);
+        return bundleValues.getString(NoteStrings.positionPrefix+NoteStrings.PositionNames[currentPositionIndex]);
     }
 
     public String getPositionRegexByIndex(int index){
-        return bundle.getString(NoteStrings.regexPrefix+NoteStrings.PositionNames[index]);
+        return bundleRegex.getString(NoteStrings.regexPrefix+NoteStrings.PositionNames[index]);
     }
     public String getCurrentRegex(){
-        return bundle.getString(NoteStrings.regexPrefix+NoteStrings.PositionNames[currentPositionIndex]);
+        return bundleRegex.getString(NoteStrings.regexPrefix+NoteStrings.PositionNames[currentPositionIndex]);
     }
 
     public boolean nextPosition(){
@@ -32,6 +33,13 @@ public class NoteBookDataModel {
             return false;
         }
         return true;
+    }
+
+    public boolean hasNextPosition(){
+        if (currentPositionIndex<NoteStrings.PositionNames.length){
+            return true;
+        }
+        return false;
     }
 
 }
