@@ -26,4 +26,12 @@ public class Note {
     public String addressHouseNumber;
     public String addressFlatNumber;
     public String fullAddress;
+
+    public Note(){
+
+    }
+
+    public void inputNewNote(){
+
+    }
 }
