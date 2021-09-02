@@ -16,5 +16,18 @@ public class NoteBook {
         this.notes = noteArray;
     }
 
+    public NoteBook(){
+        this.notes = new ArrayList<>();
+    }
+
+
+
+    public void addNote(Note note){
+        notes.add(note);
+    }
+    public Note getNoteByIndex(int index){
+        return notes.get(index);
+    }
+
 
 }
