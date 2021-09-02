@@ -34,10 +34,18 @@ public class Controller {
             view.printCurrentPositionMessage();
             view.printCurrentPositionRegex();
 
-            String input = inputRegexWithScanner(model.noteBookDataModel.getCurrentRegex());
+            int i = model.noteBookDataModel.currentPositionIndex;
+            if (i==NoteStrings.INDEX_GROUP) {
+                Group g = inputGroup();
 
-            model.note.addPosition(model.noteBookDataModel.getCurrentPositionName(),input);
-            model.noteBookDataModel.nextPosition();
+                model.note.addPosition(model.noteBookDataModel.getCurrentPositionName(), g.name());
+                model.noteBookDataModel.nextPosition();
+            } else {
+                String input = inputRegexWithScanner(model.noteBookDataModel.getCurrentRegex());
+
+                model.note.addPosition(model.noteBookDataModel.getCurrentPositionName(), input);
+                model.noteBookDataModel.nextPosition();
+            }
         }
 
         String fullName = model.generateFullName();
@@ -47,6 +55,25 @@ public class Controller {
         model.note.addPosition(NoteStrings.positionFullAddress,fullAddress);
 
         model.addNote();
+    }
+
+    public Group inputGroup(){
+        Scanner scanner = new Scanner(System.in);
+        while (!scanner.hasNext()){
+            scanner.next();
+        }
+        String str = scanner.next();
+
+        int i=0;
+        for (Group g: Group.values()){
+            if (str.equals(g.name())){
+                return g;
+            }
+            i++;
+        }
+
+        view.printGroupNotFoundMessage();
+        return inputGroup();
     }
 
 

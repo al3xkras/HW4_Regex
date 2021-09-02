@@ -10,6 +10,7 @@ public class View {
     public ResourceBundle bundleConstants;
 
     public String errorMessage;
+    public String groupNotFoundMessage;
 
     public NoteBookDataModel dataModel;
 
@@ -20,6 +21,7 @@ public class View {
                 bundleConstantsName,
                 locale);
         errorMessage = bundleConstants.getString(NoteStrings.errorMessage);
+        groupNotFoundMessage  = bundleConstants.getString(NoteStrings.groupNotFoundMessage);
     }
 
     public void printCurrentPositionMessage(){
@@ -36,5 +38,8 @@ public class View {
         System.out.println(errorMessage);
     }
 
+    public void printGroupNotFoundMessage(){
+        System.out.println(groupNotFoundMessage);
+    }
 
 }

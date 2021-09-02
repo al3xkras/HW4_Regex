@@ -9,6 +9,9 @@ public class Model {
     NoteBookDataModel noteBookDataModel;
 
 
+    private static final String COMMA = ", ";
+    private static final String BRACKET_LEFT = "(";
+    private static final String BRACKET_RIGHT = ") ";
 
     public Model(NoteBook noteBook, NoteBookDataModel noteBookDataModel){
         this.noteBook = noteBook;
@@ -42,15 +45,15 @@ public class Model {
         String flat_number = note.getPositionByKey(_flat_number);
 
         StringBuilder address = new StringBuilder();
-        address.append("(");
+        address.append(BRACKET_LEFT);
         address.append(postal);
-        address.append(") ");
+        address.append(BRACKET_RIGHT);
         address.append(city);
-        address.append(", ");
+        address.append(COMMA);
         address.append(street);
-        address.append(", house number: ");
+        address.append(COMMA);
         address.append(house_number);
-        address.append(", flat number: ");
+        address.append(COMMA);
         address.append(flat_number);
 
         return address.toString();
