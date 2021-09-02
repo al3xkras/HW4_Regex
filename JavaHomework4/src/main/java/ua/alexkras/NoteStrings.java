@@ -3,8 +3,19 @@ package ua.alexkras;
 public interface NoteStrings {
      String positionPrefix = "position.";
      String regexPrefix = "regex.";
+
      String errorMessage = "string.errorMessage";
 
+     int INDEX_NAME = 1;
+     int INDEX_SURNAME = 0;
+     int INDEX_ADDRESS_POSTAL = 11;
+     int INDEX_ADDRESS_CITY = 12;
+     int INDEX_ADDRESS_STREET = 13;
+     int INDEX_ADDRESS_HOUSE_NUMBER = 14;
+     int INDEX_ADDRESS_FLAT_NUMBER = 15;
+
+     String positionFullName = "fullName";
+     String positionFullAddress = "fullAddress";
 
      String[] PositionNames = {
              "surname",
@@ -24,4 +35,5 @@ public interface NoteStrings {
              "addressHouseNumber",
              "addressFlatNumber",
      };
+
 }
