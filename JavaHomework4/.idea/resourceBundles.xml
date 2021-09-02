@@ -5,6 +5,8 @@
     <file url="file://$PROJECT_DIR$/src/main/resources/NotePositionNames_ua_UA.properties" />
     <file url="file://$PROJECT_DIR$/src/main/resources/NoteRegex.properties" />
     <file url="file://$PROJECT_DIR$/src/main/resources/NoteRegex_ua_UA.properties" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/StringConstants.properties" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/StringConstants_ua_UA.properties" />
     <custom-resource-bundle>
       <file value="file://$PROJECT_DIR$/src/main/resources/NoteRegex.properties" />
       <file value="file://$PROJECT_DIR$/src/main/resources/NoteRegex_ua_UA.properties" />
@@ -14,6 +16,11 @@
       <file value="file://$PROJECT_DIR$/src/main/resources/NotePositionNames.properties" />
       <file value="file://$PROJECT_DIR$/src/main/resources/NotePositionNames_ua_UA.properties" />
       <base-name>NotePositionNames</base-name>
+    </custom-resource-bundle>
+    <custom-resource-bundle>
+      <file value="file://$PROJECT_DIR$/src/main/resources/StringConstants.properties" />
+      <file value="file://$PROJECT_DIR$/src/main/resources/StringConstants_ua_UA.properties" />
+      <base-name>StringConstants</base-name>
     </custom-resource-bundle>
   </component>
 </project>
