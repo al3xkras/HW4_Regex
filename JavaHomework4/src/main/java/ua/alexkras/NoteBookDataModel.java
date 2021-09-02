@@ -3,7 +3,7 @@ package ua.alexkras;
 import java.util.ResourceBundle;
 
 public class NoteBookDataModel {
-    int currentPositionIndex = 7;
+    int currentPositionIndex = 0;
 
     ResourceBundle bundleRegex,bundleValues;
 
@@ -29,6 +29,12 @@ public class NoteBookDataModel {
     public String getCurrentPositionName(){
         if (hasNextPosition()){
             return NoteStrings.PositionNames[currentPositionIndex];
+        }
+        return null;
+    }
+    public String getPositionNameByIndex(int index){
+        if (index>=0 & index<NoteStrings.PositionNames.length){
+            return NoteStrings.PositionNames[index];
         }
         return null;
     }
