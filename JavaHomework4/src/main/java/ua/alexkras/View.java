@@ -5,6 +5,8 @@ import java.util.ResourceBundle;
 
 public class View {
 
+    public String bundleConstantsName = "StringConstants";
+
     public ResourceBundle bundleConstants;
 
     public String errorMessage;
@@ -13,8 +15,6 @@ public class View {
 
     public View(NoteBookDataModel dataModel, Locale locale){
         this.dataModel = dataModel;
-
-        String bundleConstantsName = "StringConstants";
 
         this.bundleConstants = ResourceBundle.getBundle(
                 bundleConstantsName,
