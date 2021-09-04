@@ -5,7 +5,8 @@ import java.util.Arrays;
 
 public class NoteBook {
 
-    ArrayList<Note> notes;
+    private final ArrayList<Note> notes;
+    public ArrayList<Note> getNotes(){return notes;}
 
     public NoteBook(Note[] notes){
         this.notes = new ArrayList<>();
