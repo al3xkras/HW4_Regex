@@ -9,16 +9,16 @@ public class Main {
     private static final String bundleRegexName = "NoteRegex";
     private static final String bundleValuesName = "NoteValues";
 
-    public static final Locale locale = new Locale("ua","UA");
+    private static final Locale locale = new Locale("ua","UA");
 
-    public static final ResourceBundle bundleValues = ResourceBundle.getBundle(
+    private static final ResourceBundle bundleValues = ResourceBundle.getBundle(
             bundleValuesName, locale);
 
-    public static final ResourceBundle bundleRegex = ResourceBundle.getBundle(
+    private static final ResourceBundle bundleRegex = ResourceBundle.getBundle(
             bundleRegexName, locale);
 
-    public static final NoteBookDataModel noteBookDataModel = new NoteBookDataModel(bundleRegex,bundleValues);
-    public static final NoteBook noteBook = new NoteBook();
+    private static final NoteBookDataModel noteBookDataModel = new NoteBookDataModel(bundleRegex,bundleValues);
+    private static final NoteBook noteBook = new NoteBook();
 
     public static void main(String[] args) {
 
@@ -28,6 +28,6 @@ public class Main {
 
         controller.inputNewNote();
 
-        model.note.printNote();
+        model.getNote().printNote();
     }
 }
