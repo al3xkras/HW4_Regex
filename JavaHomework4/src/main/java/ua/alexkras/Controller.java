@@ -4,8 +4,11 @@ package ua.alexkras;
 import java.util.Scanner;
 
 public class Controller {
-    public Model model;
-    public View view;
+    private final Model model;
+    public Model getModel(){return model;}
+
+    private final View view;
+    public View getView(){return view;}
 
     public Controller(Model model, View view){
         this.model = model;
@@ -16,7 +19,7 @@ public class Controller {
      * Await user input, and check, if it matches particular regex
      * @param regex required regular expression
      * @throws java.util.regex.PatternSyntaxException – if the regular expression's syntax is invalid
-     * @return String, that matches regex.
+     * @return Input string, that matches regex.
      */
     public String inputRegexWithScanner(String regex){
         String output;
@@ -30,29 +33,29 @@ public class Controller {
     public void inputNewNote(){
         model.newNote();
 
-        while (model.noteBookDataModel.hasNextPosition()){
+        while (model.getNoteBookDataModel().hasNextPosition()){
             view.printCurrentPositionMessage();
             view.printCurrentPositionRegex();
 
-            int i = model.noteBookDataModel.currentPositionIndex;
+            int i = model.getNoteBookDataModel().getCurrentPositionIndex();
             if (i==NoteStrings.INDEX_GROUP) {
                 Group g = inputGroup();
 
-                model.note.addPosition(model.noteBookDataModel.getCurrentPositionName(), g.name());
-                model.noteBookDataModel.nextPosition();
+                model.getNote().addPosition(model.getNoteBookDataModel().getCurrentPositionName(), g.name());
             } else {
-                String input = inputRegexWithScanner(model.noteBookDataModel.getCurrentRegex());
+                String input = inputRegexWithScanner(model.getNoteBookDataModel().getCurrentRegex());
 
-                model.note.addPosition(model.noteBookDataModel.getCurrentPositionName(), input);
-                model.noteBookDataModel.nextPosition();
+                model.getNote().addPosition(model.getNoteBookDataModel().getCurrentPositionName(), input);
             }
+
+            model.getNoteBookDataModel().nextPosition();
         }
 
         String fullName = model.generateFullName();
         String fullAddress = model.generateFullAddress();
 
-        model.note.addPosition(NoteStrings.positionFullName,fullName);
-        model.note.addPosition(NoteStrings.positionFullAddress,fullAddress);
+        model.getNote().addPosition(NoteStrings.positionFullName,fullName);
+        model.getNote().addPosition(NoteStrings.positionFullAddress,fullAddress);
 
         model.addNote();
     }
@@ -64,12 +67,10 @@ public class Controller {
         }
         String str = scanner.next();
 
-        int i=0;
         for (Group g: Group.values()){
             if (str.equals(g.name())){
                 return g;
             }
-            i++;
         }
 
         view.printGroupNotFoundMessage();

@@ -5,14 +5,14 @@ import java.util.ResourceBundle;
 
 public class View {
 
-    public String bundleConstantsName = "StringConstants";
+    private final String bundleConstantsName = "StringConstants";
 
-    public ResourceBundle bundleConstants;
+    private final ResourceBundle bundleConstants;
 
-    public String errorMessage;
-    public String groupNotFoundMessage;
+    private final String errorMessage;
+    private final String groupNotFoundMessage;
 
-    public NoteBookDataModel dataModel;
+    private final NoteBookDataModel dataModel;
 
     public View(NoteBookDataModel dataModel, Locale locale){
         this.dataModel = dataModel;
