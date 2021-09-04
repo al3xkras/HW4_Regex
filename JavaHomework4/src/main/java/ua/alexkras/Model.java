@@ -4,10 +4,17 @@ import java.util.ResourceBundle;
 
 public class Model {
 
-    Note note;
-    NoteBook noteBook;
-    NoteBookDataModel noteBookDataModel;
+    private Note note = new Note();
+    public Note getNote(){return note;}
+    public void newNote(){
+        note = new Note();
+    }
 
+    private final NoteBook noteBook;
+    public NoteBook getNoteBook(){return noteBook;}
+
+    private final NoteBookDataModel noteBookDataModel;
+    public NoteBookDataModel getNoteBookDataModel(){return noteBookDataModel;}
 
     private static final String COMMA = ", ";
     private static final String BRACKET_LEFT = "(";
@@ -16,6 +23,12 @@ public class Model {
     public Model(NoteBook noteBook, NoteBookDataModel noteBookDataModel){
         this.noteBook = noteBook;
         this.noteBookDataModel = noteBookDataModel;
+    }
+
+    public void addNote(){
+        if (note!=null) {
+            noteBook.addNote(note);
+        }
     }
 
     public String generateFullName(){
@@ -57,15 +70,5 @@ public class Model {
         address.append(flat_number);
 
         return address.toString();
-    }
-
-    public void newNote(){
-        note = new Note();
-    }
-
-    public void addNote(){
-        if (note!=null) {
-            noteBook.addNote(note);
-        }
     }
 }
