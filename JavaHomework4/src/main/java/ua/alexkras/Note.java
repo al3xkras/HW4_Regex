@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Note {
 
     public final ArrayList<String> keys = new ArrayList<>();
-    private final ArrayList<String> values = new ArrayList<>();
+    public final ArrayList<String> values = new ArrayList<>();
 
     private static final String BRACKET_LEFT = "[";
     private static final String BRACKET_RIGHT = "]";
@@ -20,6 +20,7 @@ public class Note {
     public void addPosition(String key, String value){
         int indexOf = keys.indexOf(key);
         if (indexOf!=-1){
+            values.remove(indexOf);
             values.add(indexOf,value);
         } else {
             keys.add(key);
@@ -38,7 +39,7 @@ public class Note {
     }
 
     public boolean containsPosition(String position){
-        return values.contains(position);
+        return keys.contains(position);
     }
 
     public void printNote(){
