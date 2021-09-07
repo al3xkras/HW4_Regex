@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import ua.alexkras.exception.NoteBookLoginExistsException;
 
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -44,7 +45,7 @@ public class TestModel {
     }
 
     @Test
-    public void testAddNote(){
+    public void testAddNote() throws NoteBookLoginExistsException {
         Assert.assertEquals(0,model.getNoteBook().getNotes().size());
         model.newNote();
         Assert.assertNotNull(model.getNote());
@@ -54,8 +55,8 @@ public class TestModel {
 
     @Test
     public void testGenerateFullName(){
-        String _name = NoteStrings.PositionNames[NoteStrings.INDEX_NAME];
-        String _surname = NoteStrings.PositionNames[NoteStrings.INDEX_SURNAME];
+        String _name = NoteStrings.positionNames[NoteStrings.INDEX_NAME];
+        String _surname = NoteStrings.positionNames[NoteStrings.INDEX_SURNAME];
 
         model.getNote().addPosition(_name,"Name");
         model.getNote().addPosition(_surname,"Surname");
@@ -65,11 +66,11 @@ public class TestModel {
 
     @Test
     public void testGenerateFullAddress(){
-        String _postal = NoteStrings.PositionNames[NoteStrings.INDEX_ADDRESS_POSTAL];
-        String _city = NoteStrings.PositionNames[NoteStrings.INDEX_ADDRESS_CITY];
-        String _street = NoteStrings.PositionNames[NoteStrings.INDEX_ADDRESS_STREET];
-        String _house_number = NoteStrings.PositionNames[NoteStrings.INDEX_ADDRESS_HOUSE_NUMBER];
-        String _flat_number = NoteStrings.PositionNames[NoteStrings.INDEX_ADDRESS_FLAT_NUMBER];
+        String _postal = NoteStrings.positionNames[NoteStrings.INDEX_ADDRESS_POSTAL];
+        String _city = NoteStrings.positionNames[NoteStrings.INDEX_ADDRESS_CITY];
+        String _street = NoteStrings.positionNames[NoteStrings.INDEX_ADDRESS_STREET];
+        String _house_number = NoteStrings.positionNames[NoteStrings.INDEX_ADDRESS_HOUSE_NUMBER];
+        String _flat_number = NoteStrings.positionNames[NoteStrings.INDEX_ADDRESS_FLAT_NUMBER];
 
         model.getNote().addPosition(_postal,"33853");
         model.getNote().addPosition(_city,"Kyiv");

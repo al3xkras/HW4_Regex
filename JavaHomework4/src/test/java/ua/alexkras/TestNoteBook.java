@@ -3,6 +3,7 @@ package ua.alexkras;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import ua.alexkras.exception.NoteBookLoginExistsException;
 
 public class TestNoteBook {
     NoteBook noteBook;
@@ -24,7 +25,7 @@ public class TestNoteBook {
     }
 
     @Test
-    public void testAddNote2(){
+    public void testAddNote2() throws NoteBookLoginExistsException {
         noteBook.addNote(note1);
         noteBook.addNote(note2);
 
@@ -32,7 +33,7 @@ public class TestNoteBook {
     }
 
     @Test
-    public void testGetNote1(){
+    public void testGetNote1() throws NoteBookLoginExistsException {
         noteBook.addNote(note1);
         noteBook.addNote(note2);
 
@@ -41,11 +42,31 @@ public class TestNoteBook {
     }
 
     @Test(expected = IndexOutOfBoundsException.class)
-    public void testGetNote2(){
+    public void testGetNote2() throws NoteBookLoginExistsException{
         noteBook.addNote(note1);
         noteBook.addNote(note2);
 
         noteBook.getNoteByIndex(2);
+    }
+
+    @Test(expected = NoteBookLoginExistsException.class)
+    public void testAddNoteException1() throws NoteBookLoginExistsException{
+        String _login = NoteStrings.positionNames[NoteStrings.INDEX_LOGIN];
+        note1.addPosition(_login,"login1");
+        note2.addPosition(_login,"login1");
+
+        noteBook.addNote(note1);
+        noteBook.addNote(note2);
+    }
+
+    @Test
+    public void testAddNoteException2() throws NoteBookLoginExistsException{
+        String _login = NoteStrings.positionNames[NoteStrings.INDEX_LOGIN];
+        note1.addPosition(_login,"login1");
+        note2.addPosition(_login,"login2");
+
+        noteBook.addNote(note1);
+        noteBook.addNote(note2);
     }
 
 }

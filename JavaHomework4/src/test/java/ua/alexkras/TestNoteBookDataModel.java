@@ -37,8 +37,8 @@ public class TestNoteBookDataModel {
 
     @Test
     public void testGetCurrentValue(){
-        String expectedCurrentValue1 = bundleValues.getString(NoteStrings.positionPrefix+NoteStrings.PositionNames[0]);
-        String expectedCurrentValue2 = bundleValues.getString(NoteStrings.positionPrefix+NoteStrings.PositionNames[1]);
+        String expectedCurrentValue1 = bundleValues.getString(NoteStrings.positionPrefix+NoteStrings.positionNames[0]);
+        String expectedCurrentValue2 = bundleValues.getString(NoteStrings.positionPrefix+NoteStrings.positionNames[1]);
 
         Assert.assertEquals(noteBookDataModel.getCurrentValue(),expectedCurrentValue1);
         noteBookDataModel.nextPosition();
@@ -48,8 +48,8 @@ public class TestNoteBookDataModel {
 
     @Test
     public void testGetCurrentRegex(){
-        String expectedCurrentRegex1 = bundleRegex.getString(NoteStrings.regexPrefix+NoteStrings.PositionNames[0]);
-        String expectedCurrentRegex2 = bundleRegex.getString(NoteStrings.regexPrefix+NoteStrings.PositionNames[1]);
+        String expectedCurrentRegex1 = bundleRegex.getString(NoteStrings.regexPrefix+NoteStrings.positionNames[0]);
+        String expectedCurrentRegex2 = bundleRegex.getString(NoteStrings.regexPrefix+NoteStrings.positionNames[1]);
 
         Assert.assertEquals(noteBookDataModel.getCurrentRegex(),expectedCurrentRegex1);
         noteBookDataModel.nextPosition();
@@ -59,8 +59,8 @@ public class TestNoteBookDataModel {
 
     @Test
     public void testGetCurrentPositionName(){
-        String expectedCurrentName1 = NoteStrings.PositionNames[0];
-        String expectedCurrentName2 = NoteStrings.PositionNames[1];
+        String expectedCurrentName1 = NoteStrings.positionNames[0];
+        String expectedCurrentName2 = NoteStrings.positionNames[1];
 
         Assert.assertEquals(noteBookDataModel.getCurrentPositionName(),expectedCurrentName1);
         noteBookDataModel.nextPosition();
@@ -70,8 +70,8 @@ public class TestNoteBookDataModel {
 
     @Test
     public void testGetPositionNameByIndex(){
-        String expectedCurrentName1 = NoteStrings.PositionNames[0];
-        String expectedCurrentName2 = NoteStrings.PositionNames[3];
+        String expectedCurrentName1 = NoteStrings.positionNames[0];
+        String expectedCurrentName2 = NoteStrings.positionNames[3];
 
         Assert.assertEquals(noteBookDataModel.getPositionNameByIndex(0),expectedCurrentName1);
         noteBookDataModel.nextPosition();
@@ -81,7 +81,7 @@ public class TestNoteBookDataModel {
 
     @Test
     public void testHasNextPosition(){
-        int loops = NoteStrings.PositionNames.length;
+        int loops = NoteStrings.positionNames.length;
 
         for (int i=0; i<loops; i++){
             Assert.assertTrue(noteBookDataModel.hasNextPosition());
