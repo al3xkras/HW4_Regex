@@ -8,8 +8,11 @@ public interface NoteStrings {
      String groupNotFoundMessage = "string.groupNotFoundMessage";
      String loginExistsMessage = "string.loginExistsMessage";
 
-     int INDEX_NAME = 1;
+     String dateOfCreation = "dateOfCreation";
+     String dateOfLastEdit = "dateOfLastEdit";
+
      int INDEX_SURNAME = 0;
+     int INDEX_NAME = 1;
      int INDEX_ADDRESS_POSTAL = 11;
      int INDEX_ADDRESS_CITY = 12;
      int INDEX_ADDRESS_STREET = 13;
@@ -40,7 +43,7 @@ public interface NoteStrings {
              "addressCity",
              "addressStreet",
              "addressHouseNumber",
-             "addressFlatNumber",
+             "addressFlatNumber"
      };
 
 }

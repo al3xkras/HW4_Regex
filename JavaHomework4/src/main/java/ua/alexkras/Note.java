@@ -1,16 +1,30 @@
 package ua.alexkras;
 
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Note {
 
     public final ArrayList<String> keys = new ArrayList<>();
     public final ArrayList<String> values = new ArrayList<>();
 
+    private final Date dateOfCreation;
+    public Date getDateOfCreation(){return dateOfCreation;}
+
+    private Date dateOfLastEdit;
+    public Date getDateOfLastEdit(){return dateOfLastEdit;}
+
     private static final String BRACKET_LEFT = "[";
     private static final String BRACKET_RIGHT = "]";
     private static final String COLON = " : ";
 
+
+    public Note(){
+        dateOfCreation = new Date();
+        dateOfLastEdit = new Date();
+    }
     /**
      * Add value (position) to a Note, and associate it with key.
      * @param key Key, that will be associated with value. If Note already contains the key,
@@ -26,6 +40,7 @@ public class Note {
             keys.add(key);
             values.add(value);
         }
+        dateOfLastEdit = new Date();
     }
 
     /**
@@ -48,5 +63,11 @@ public class Note {
         for (int i=0; i<keys.size();i++){
             System.out.println(BRACKET_LEFT+keys.get(i)+COLON+values.get(i)+BRACKET_RIGHT);
         }
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+        System.out.println(NoteStrings.dateOfCreation+COLON+
+                dateFormat.format(dateOfCreation));
+        System.out.println(NoteStrings.dateOfLastEdit+COLON+
+                dateFormat.format(dateOfLastEdit));
     }
 }
