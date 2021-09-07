@@ -1,6 +1,6 @@
 package ua.alexkras;
 
-import java.util.ResourceBundle;
+import ua.alexkras.exception.NoteBookLoginExistsException;
 
 public class Model {
 
@@ -25,7 +25,7 @@ public class Model {
         this.noteBookDataModel = noteBookDataModel;
     }
 
-    public void addNote(){
+    public void addNote() throws NoteBookLoginExistsException {
         if (note!=null) {
             noteBook.addNote(note);
         }
@@ -33,8 +33,8 @@ public class Model {
 
     public String generateFullName(){
 
-        String _name = NoteStrings.PositionNames[NoteStrings.INDEX_NAME];
-        String _surname = NoteStrings.PositionNames[NoteStrings.INDEX_SURNAME];
+        String _name = NoteStrings.positionNames[NoteStrings.INDEX_NAME];
+        String _surname = NoteStrings.positionNames[NoteStrings.INDEX_SURNAME];
 
         String name = note.getPositionByKey(_name);
         String surname = note.getPositionByKey(_surname);
@@ -44,11 +44,11 @@ public class Model {
 
     public String generateFullAddress(){
 
-        String _postal = NoteStrings.PositionNames[NoteStrings.INDEX_ADDRESS_POSTAL];
-        String _city = NoteStrings.PositionNames[NoteStrings.INDEX_ADDRESS_CITY];
-        String _street = NoteStrings.PositionNames[NoteStrings.INDEX_ADDRESS_STREET];
-        String _house_number = NoteStrings.PositionNames[NoteStrings.INDEX_ADDRESS_HOUSE_NUMBER];
-        String _flat_number = NoteStrings.PositionNames[NoteStrings.INDEX_ADDRESS_FLAT_NUMBER];
+        String _postal = NoteStrings.positionNames[NoteStrings.INDEX_ADDRESS_POSTAL];
+        String _city = NoteStrings.positionNames[NoteStrings.INDEX_ADDRESS_CITY];
+        String _street = NoteStrings.positionNames[NoteStrings.INDEX_ADDRESS_STREET];
+        String _house_number = NoteStrings.positionNames[NoteStrings.INDEX_ADDRESS_HOUSE_NUMBER];
+        String _flat_number = NoteStrings.positionNames[NoteStrings.INDEX_ADDRESS_FLAT_NUMBER];
 
 
         String postal = note.getPositionByKey(_postal);
