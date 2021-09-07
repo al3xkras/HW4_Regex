@@ -31,10 +31,12 @@ public class Note {
     /**
      * Get position value of a Note by its key.
      * @param key - String, that identifies particular value
-     * @throws IndexOutOfBoundsException – if there is no value matching key
-     * @return String (value), that matches key
+     * @return String, that matches key; null – if Note does not contain specified key
      */
     public String getPositionByKey(String key){
+        if (!this.containsPosition(key)){
+            return null;
+        }
         return values.get(keys.indexOf(key));
     }
 
