@@ -11,6 +11,7 @@ public class View {
 
     private final String errorMessage;
     private final String groupNotFoundMessage;
+    private final String loginExistsMessage;
 
     private final NoteBookDataModel dataModel;
 
@@ -22,6 +23,7 @@ public class View {
                 locale);
         errorMessage = bundleConstants.getString(NoteStrings.errorMessage);
         groupNotFoundMessage  = bundleConstants.getString(NoteStrings.groupNotFoundMessage);
+        loginExistsMessage = bundleConstants.getString(NoteStrings.loginExistsMessage);
     }
 
     public void printCurrentPositionMessage(){
@@ -40,6 +42,14 @@ public class View {
 
     public void printGroupNotFoundMessage(){
         System.out.println(groupNotFoundMessage);
+    }
+
+    public void printLoginExistsMessage(){
+        System.out.println(loginExistsMessage);
+    }
+
+    public void print(String message){
+        System.out.println(message);
     }
 
 }

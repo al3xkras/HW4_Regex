@@ -1,6 +1,8 @@
 package ua.alexkras;
 
 
+import ua.alexkras.exception.NoteBookLoginExistsException;
+
 import java.util.Scanner;
 
 public class Controller {
@@ -57,7 +59,28 @@ public class Controller {
         model.getNote().addPosition(NoteStrings.positionFullName,fullName);
         model.getNote().addPosition(NoteStrings.positionFullAddress,fullAddress);
 
-        model.addNote();
+
+        try {
+            model.addNote();
+        } catch (NoteBookLoginExistsException e){
+            String key = NoteStrings.positionNames[NoteStrings.INDEX_LOGIN];
+
+            String invalidLogin = model.getNote().getPositionByKey(key);
+            String newLogin = invalidLogin;
+
+
+            while (model.getNoteBook().containsNoteWithLogin(newLogin)) {
+                view.printLoginExistsMessage();
+                view.print(model.getNoteBookDataModel().getValueByIndex(NoteStrings.INDEX_LOGIN));
+
+                newLogin = inputRegexWithScanner(
+                        model.getNoteBookDataModel().getRegexByIndex(NoteStrings.INDEX_LOGIN));
+            }
+
+            model.getNote().addPosition(key,newLogin);
+
+            model.getNoteBook().forceAddNote(model.getNote());
+        }
     }
 
     public Group inputGroup(){
